@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Job {
+  id              String   @id @default(cuid())
+  source          String
+  sourceJobId     String?
+  title           String
+  company         String
+  location        String?
+  remoteType      String?
+  description     String
+  applyUrl        String
+  employmentType  String?
+  salaryText      String?
+  postedAt        DateTime?
+  firstSeenAt     DateTime @default(now())
+  lastSeenAt      DateTime @default(now())
+  contentHash     String   @unique
+  embedding       Json?
+  status          String   @default("SAVED")
+  searchKeyword   String?
+  fitScore        Int?
+  fitSummary      String?
+  strengths       Json?
+  gaps            Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([title])
+  @@index([company])
+  @@index([location])
+  @@index([postedAt])
+  @@index([status])
+}
+
+model CandidateProfile {
+  id              String   @id @default("default")
+  fileName        String?
+  resumeText      String   @db.Text
+  profileJson     Json?
+  strengths       Json?
+  gaps            Json?
+  summary         String?
+  updatedAt       DateTime @updatedAt
+}
+
+model SearchRun {
+  id              String   @id @default(cuid())
+  keyword         String
+  location        String?
+  source          String
+  resultCount     Int      @default(0)
+  createdAt       DateTime @default(now())
+}

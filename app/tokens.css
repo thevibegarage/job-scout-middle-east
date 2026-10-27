@@ -1,0 +1,94 @@
+/* IIM L design system tokens. Read colours from these custom properties; never paste hex values into new work. */
+:root,
+[data-theme="light"] {
+  --surface-100: #fff8ea;
+  --surface-200: #ffffff;
+  --surface-300: #ffefc9;
+  --ink: #17120e;
+  --ink-muted: #5e544a;
+  --line: #e6dac3;
+  --line-strong: #8a7d6e;
+  --brick: #d23a08;
+  --brick-press: #b03007;
+  --on-brick: #ffffff;
+  --gold: #ffc21a;
+  --gold-tint: #ffe9a3;
+  --on-gold: #17120e;
+  --night: #17120e;
+  --on-night: #fff8ea;
+  --success: #0b6b5c;
+  --danger: #b3151f;
+  --focus-ring: #17120e;
+  --shadow-tile: 0 1px 2px #17120e1f;
+  --shadow-press: 0 3px 0 0 #17120e;
+}
+
+[data-theme="dark"] {
+  --surface-100: #17120e;
+  --surface-200: #241d18;
+  --surface-300: #322922;
+  --ink: #fff8ea;
+  --ink-muted: #bdb1a3;
+  --line: #3d342c;
+  --line-strong: #8f8272;
+  --brick: #ff7a4d;
+  --brick-press: #ff9a73;
+  --on-brick: #17120e;
+  --gold: #ffc21a;
+  --gold-tint: #3a2f10;
+  --on-gold: #17120e;
+  --night: #3a2f27;
+  --on-night: #fff8ea;
+  --success: #4fd1b5;
+  --danger: #ff8a8f;
+  --focus-ring: #fff8ea;
+  --shadow-tile: 0 1px 2px #00000066;
+  --shadow-press: 0 3px 0 0 #000000;
+}
+
+/* Follow the visitor's system theme unless a container pins data-theme="light". */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface-100: #17120e;
+    --surface-200: #241d18;
+    --surface-300: #322922;
+    --ink: #fff8ea;
+    --ink-muted: #bdb1a3;
+    --line: #3d342c;
+    --line-strong: #8f8272;
+    --brick: #ff7a4d;
+    --brick-press: #ff9a73;
+    --on-brick: #17120e;
+    --gold-tint: #3a2f10;
+    --night: #3a2f27;
+    --success: #4fd1b5;
+    --danger: #ff8a8f;
+    --focus-ring: #fff8ea;
+    --shadow-tile: 0 1px 2px #00000066;
+    --shadow-press: 0 3px 0 0 #000000;
+  }
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+  --gutter: 12px;
+  --page-margin: 24px;
+  --page-max: 1280px;
+  --touch-min: 44px;
+  --font-display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --font-text: "Figtree", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
